@@ -243,17 +243,17 @@
       "poll_ticks": 48000
     },
     "lens": {
-      "basis": "Measured X-T2 4.41 lens information page (XF70-300mmF4-5.6 R LM OIS WR) read from 0x1218e30 over FF80 in research/hardware/xt2-441-af-capture-20261117T010449Z-bee67941.",
+      "basis": "The information page is the X-T20 discovery lens page (layout of the body's copy at X-T20 0x11e3958, \"LY043A\", \"FLSNW039AF 25/1.7 XF\", synthetic serial 00A0000). The earlier page here was the X-T2's processed copy at 0x1218e30 (XF70-300mmF4-5.6 R LM OIS WR, read over FF80 in research/hardware/xt2-441-af-capture-20261117T010449Z-bee67941), which is not the wire format: the X-T2 4.41 body checks page bytes 9..12 (0xc94370: 'L', then S/Z/P, N/G/S, A/F/W, the lens type code that starts at byte 8) and rejects the read otherwise, retrying it forever and raising ERR_LENS_COMMUNICATION_ERROR 0x9039 from 0xc94cac (LENS ERROR on the shooting display, MENU refused). The raw XF70-300 page was never captured (the lens-link log records command words only). Replies are the XF70-300's resting answers from the 2026-11-14/17 link captures (research/xt2-441/lens-protocol.md): status 0x20 -> 0x480, 0x26 -> 0x1a. Wiring and delays are the X-T20's; the X-T2 4.41 lswatch task (0xc92b48), its ready ISRs (0xc868ac / 0xc86878, resource rows 0x52/0x53 = interrupt 166) and its serial resource 0xe match them.",
       "port": 4294082560,
-      "page": "4c58323333420000584637302d3330306d6d46342d352e362052204c4d204f49532057520000000000000000000000000000000000000000000000000000000000000000000000003543433035393336000046000000cf8a01003075307500000000000000000000000000000000000000000000000000000000000000000000",
+      "page": "4c59303433410000464c534e5730333941462032352f312e372058462020202020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030304130303030000000010501030270027102718a010100000000000000000000000000000000000000000000000000",
       "replies": [
         [
           32,
-          768
+          1152
         ],
         [
           38,
-          28
+          26
         ]
       ],
       "power": [
